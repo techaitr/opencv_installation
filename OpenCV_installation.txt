@@ -1,0 +1,43 @@
+"opencv_build450" dosya değiştirerek kurulabilir. Dosya home dizini altında oluşuyor.
+
+-> command
+mkdir ~/opencv_build450 && cd ~/opencv_build450
+
+-> command
+git clone https://github.com/opencv/opencv.git
+
+-> command
+git clone https://github.com/opencv/opencv_contrib.git
+
+
+-> command
+cd ~/opencv_build450/opencv
+
+-> command
+mkdir -p build && cd build
+
+
+-> command
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=ON \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D OPENCV_GENERATE_PKGCONFIG=ON \
+    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build450/opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON ..
+
+
+
+Modify the -j flag according to your processor. If you do not know the number of cores in your processor, you can find it by typing nproc.
+CPU işlemci sayiniza göre değiştirebilir. 
+-> command
+make -j11 
+
+-> command
+sudo make install
+
+
+To verify the installation, type the following commands and you should see the OpenCV version.
+pkg-config --modversion opencv4
+
+sudo make install
