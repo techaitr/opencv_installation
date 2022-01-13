@@ -39,5 +39,4 @@ sudo make install
 
 To verify the installation, type the following commands and you should see the OpenCV version.
 pkg-config --modversion opencv4
-
-sudo make install
+ 
